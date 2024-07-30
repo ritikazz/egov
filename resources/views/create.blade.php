@@ -15,8 +15,10 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="address">Address:</label>
+            <input type="address" id="address" name="address" required>
+            <label for="title">Title of a Complaint:</label>
+            <input type="title" id="title" name="title" required>
             
             <label for="description">Description:</label>
             <textarea id="description" name="description" required></textarea>

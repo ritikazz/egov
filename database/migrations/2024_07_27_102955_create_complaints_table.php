@@ -12,7 +12,8 @@ return new class extends Migration
         $table->id();
         $table->string('name');
         $table->string('email');
-        $table->string('password');
+        $table->string('address');
+        $table->string('title');
         $table->text('description');
         $table->timestamps();
     });
@@ -22,8 +23,8 @@ return new class extends Migration
 public function down()
 {
     Schema::table('complaints', function (Blueprint $table) {
-        $table->dropColumn(['name', 'email', 'password']);
-        $table->text('description')->change(); // Revert description field if it was changed
+    //     $table->dropColumn(['name', 'email', 'password']);
+    //     $table->text('description')->change(); // Revert description field if it was changed
     });
 }
 
