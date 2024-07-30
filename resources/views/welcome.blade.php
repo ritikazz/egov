@@ -12,16 +12,17 @@
             <h1>Welcome to the Complaint Management System</h1>
             <!-- <img src="{{ asset('images/OrangeComplaint.jpg') }}" alt="Complaint" class="complaint-image"> -->
             <div class="button-container">
-                <a href="{{ route('complaint.create') }}" class="button">Submit a Complaint</a>
-                <a href="{{ route('complaints.list') }}" class="button">View Complaints</a>
+                 @if (Route::has('login'))
+                    @auth
+                        <a href="{{ route('complaint.create') }}" class="button">Submit a Complaint</a>
+                        <a href="{{ route('complaints.list') }}" class="button">View Complaints</a>
+                    @else
+                        <a href="{{ route('login') }}" class="button">Log in</a>
+                        <a href="{{ route('register') }}" class="button">Register</a>
+                    @endauth
+                @endif
             </div>
         </div>
     </header>
-    <!-- Success Alert -->
-    @if(session('success'))
-        <div class="alert success">
-            {{ session('success') }}
-        </div>
-    @endif
 </body>
 </html>
