@@ -3,14 +3,24 @@
 <head>
     <title>Complaint Management System</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header class="hero">
         <div class="hero-content">
-            
+        @if (session('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '{{ session('success') }}',
+                });
+            });
+        </script>
+    @endif
             <img src="{{ asset('/css/images/newlogo.png') }}" alt="Logo" class="logo">
             <h1>Welcome to the Complaint Management System</h1>
-            <!-- <img src="{{ asset('images/OrangeComplaint.jpg') }}" alt="Complaint" class="complaint-image"> -->
             <div class="button-container">
                  @if (Route::has('login'))
                     @auth

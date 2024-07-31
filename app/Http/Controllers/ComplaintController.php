@@ -28,7 +28,8 @@ class ComplaintController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'password' => 'required|string|min:6',
+            'address' => 'required|string',
+            'title' => 'required|string',
             'description' => 'required|string',
         ]);
         

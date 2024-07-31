@@ -12,6 +12,8 @@
             <li class="list-group-item">
                 <h5>{{ $complaint->name }}</h5>
                 <p>{{ $complaint->email }}</p>
+                <p>{{ $complaint->address }}</p>
+                <p>{{ $complaint->title }}</p>
                 <p>{{ $complaint->description }}</p>
                 <small>{{ $complaint->created_at }}</small>
             </li>

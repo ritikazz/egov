@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComplaintController;
 /*
@@ -22,11 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Registration and login routes
-Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/create', [ComplaintController::class, 'create'])->name('complaint.create');
@@ -34,5 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/list', [ComplaintController::class, 'list'])->name('complaints.list');
 });
 
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
 require __DIR__.'/auth.php';
 

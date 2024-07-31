@@ -13,7 +13,8 @@ class Complaint extends Model
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'address',
+        'title',
         'description',
     ];
 
