@@ -41,9 +41,13 @@ class ComplaintController extends Controller
 
     public function list()
     {
-        $complaints = Complaint::all();
-        // return redirect()->route('complaints.list');
+        if (auth()->user()->role == 'admin') {
+            $complaints = Complaint::all();
+        } else {
+            $complaints = Complaint::where('id', auth()->id())->get();
+        }
         return view('list', compact('complaints'));
     }
+    
 }
 

@@ -37,7 +37,7 @@
             @else
                 <!-- Links visible to authenticated users -->
                 <li><a href="{{ route('complaint.create') }}">Submit Complaint</a></li>
-                <li><a href="{{ route('complaints.list') }}">View Complaints</a></li>
+                <li><a href="{{ route('complaints.list') }}">View All Complaints</a></li>
                 <li>
                     <a href="{{ route('logout') }}" 
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
