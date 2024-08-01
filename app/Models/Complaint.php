@@ -16,10 +16,16 @@ class Complaint extends Model
         'address',
         'title',
         'description',
+        'user_id'
     ];
 
     // Optionally, you can define hidden attributes (e.g., sensitive information)
     protected $hidden = [
         'password',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

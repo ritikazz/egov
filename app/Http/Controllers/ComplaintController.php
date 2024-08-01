@@ -32,19 +32,23 @@ class ComplaintController extends Controller
             'title' => 'required|string',
             'description' => 'required|string',
         ]);
-        
-        Complaint::create($request->all());
+    
+        // Merge the user_id into the request data
+        $data = $request->all();
+        $data['user_id'] = auth()->id();
+    
+        Complaint::create($data);
+    
         return redirect()->route('home')->with('success', 'Complaint submitted successfully!');
-
-         
     }
+    
 
     public function list()
     {
         if (auth()->user()->role == 'admin') {
             $complaints = Complaint::all();
         } else {
-            $complaints = Complaint::where('id', auth()->id())->get();
+            $complaints = Complaint::where('user_id', auth()->id())->get();
         }
         return view('list', compact('complaints'));
     }

@@ -10,6 +10,8 @@ return new class extends Migration
 {
     Schema::create('complaints', function (Blueprint $table) {
         $table->id();
+        $table->unsignedBigInteger('user_id'); // Create the user_id column
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Add this line
         $table->string('name');
         $table->string('email');
         $table->string('address');
